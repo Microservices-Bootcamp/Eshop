@@ -1,24 +1,32 @@
 ﻿using System;
 using Catalog.Entities;
+using Catalog.Repositories;
 
 namespace Catalog.Services
 {
     public class CategoryService : ICategoryService
     {
-        public CategoryService()
+        private readonly ICategoryRepository _categoryRepository;
+        public CategoryService(ICategoryRepository categoryRepository)
         {
+            _categoryRepository = categoryRepository;
         }
 
-        public Task Create(Category category)
+        public async Task Create(Category category)
         {
             // check if the name is not empty
-            if(string.IsNullOrEmpty(category.Name))
-            {               
+            if (string.IsNullOrEmpty(category.Name))
+            {
                 throw new CategoryNameEmptyException();
             }
 
             // make sure the category is not already exists
-            throw new NotImplementedException();
+            var exists = _categoryRepository.CategoryNameIsExist(category.Name);
+            if (exists)
+            {
+                throw new CategoryAlreadyExistsException(category.Name);
+            }
+            await _categoryRepository.Add(category);            
         }
     }
 }
