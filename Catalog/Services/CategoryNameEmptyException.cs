@@ -5,8 +5,9 @@ namespace Catalog.Services
     [Serializable]
     internal class CategoryNameEmptyException : Exception
     {
-        public CategoryNameEmptyException() : base("Catengory name should not be null")
+        public CategoryNameEmptyException() : base("Category name should not be null")
         {
         }
+
     }
 }
