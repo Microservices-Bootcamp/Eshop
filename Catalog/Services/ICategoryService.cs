@@ -5,7 +5,7 @@ namespace Catalog.Services
 {
     public interface ICategoryService
     {
-        public Task Create(Category category);
+        public Task Create(string categoryName);
     }
 }
 

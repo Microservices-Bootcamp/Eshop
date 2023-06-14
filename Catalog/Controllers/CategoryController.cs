@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Catalog.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.Controllers
@@ -9,12 +10,20 @@ namespace Catalog.Controllers
     [Route("/categories")]
     public class CategoryController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult Post(string categoryName)
+        private readonly CategoryService _categoryService;
+        public CategoryController(CategoryService categoryService)
         {
-            
-            return View();
+            _categoryService = categoryService;
+        }
+        [HttpPost]
+        public async Task<IActionResult> Post(string categoryName)
+        {
+            await _categoryService.Create(categoryName);
+            return Ok("Category created...");
+
         }
     }
+
+
 }
 
