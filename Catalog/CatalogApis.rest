@@ -2,3 +2,8 @@
 
 ###
 POST {{url}}/categories
+Content-Type: application/json
+
+{
+    "categoryName": "First Category"
+}
