@@ -9,6 +9,11 @@ namespace Catalog.Controllers
     [Route("/categories")]
     public class CategoryController : ControllerBase
     {
+    
+        public CategoryController() 
+        {
+            
+        }
         [HttpPost]
         public IActionResult Post(string categoryName)
         {
@@ -16,5 +21,7 @@ namespace Catalog.Controllers
             return View();
         }
     }
+
+
 }
 

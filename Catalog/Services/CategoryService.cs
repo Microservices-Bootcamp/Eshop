@@ -26,7 +26,7 @@ namespace Catalog.Services
             {
                 throw new CategoryAlreadyExistsException(categoryName);
             }
-            var category = new Category { Name = categoryName };
+            var category = new Category { Name = categoryName, Id = Guid.NewGuid() };
 
             await _categoryRepository.Add(category);            
         }
