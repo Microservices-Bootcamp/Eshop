@@ -10,8 +10,9 @@ namespace Catalog.Controllers
     public class CategoryController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Post()
+        public IActionResult Post(string categoryName)
         {
+            
             return View();
         }
     }

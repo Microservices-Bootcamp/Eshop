@@ -12,22 +12,43 @@ namespace Catalog.Services
             _categoryRepository = categoryRepository;
         }
 
-        public async Task Create(Category category)
+        public async Task Create(string categoryName)
         {
             // check if the name is not empty
-            if (string.IsNullOrEmpty(category.Name))
+            if (string.IsNullOrEmpty(categoryName))
             {
                 throw new CategoryNameEmptyException();
             }
 
             // make sure the category is not already exists
-            var exists = _categoryRepository.CategoryNameIsExist(category.Name);
+            var exists = _categoryRepository.CategoryNameIsExist(categoryName);
             if (exists)
             {
-                throw new CategoryAlreadyExistsException(category.Name);
+                throw new CategoryAlreadyExistsException(categoryName);
             }
+            var category = new Category { Name = categoryName };
+
             await _categoryRepository.Add(category);            
         }
+
+        
+
+        //public async Task Create(Category category)
+        //{
+        //    // check if the name is not empty
+        //    if (string.IsNullOrEmpty(category.Name))
+        //    {
+        //        throw new CategoryNameEmptyException();
+        //    }
+
+        //    // make sure the category is not already exists
+        //    var exists = _categoryRepository.CategoryNameIsExist(category.Name);
+        //    if (exists)
+        //    {
+        //        throw new CategoryAlreadyExistsException(category.Name);
+        //    }
+        //    await _categoryRepository.Add(category);
+        //}
     }
 }
 
