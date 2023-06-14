@@ -8,3 +8,4 @@ app.MapGet("/", () => "Catalog Module");
 
 app.Run();
 
+//test
