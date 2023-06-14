@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Catalog.Services
+﻿namespace Catalog.Services.Exceptions
 {
     [Serializable]
     internal class CategoryAlreadyExistsException : Exception

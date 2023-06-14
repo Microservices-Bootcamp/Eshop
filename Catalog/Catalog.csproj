@@ -13,10 +13,4 @@
     <None Remove="Repositories\" />
     <None Remove="Controllers\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Services\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System;
 using Catalog.Entities;
 using Catalog.Repositories;
+using Catalog.Services.Exceptions;
 
 namespace Catalog.Services
 {
