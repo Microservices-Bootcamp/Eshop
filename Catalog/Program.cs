@@ -17,3 +17,5 @@ var app = builder.Build();
 app.MapGet("/", () => "Catalog Module");
 app.MapControllers();
 app.Run();
+
+public partial class Program { }

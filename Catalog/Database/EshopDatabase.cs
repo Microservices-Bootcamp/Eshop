@@ -5,7 +5,7 @@ namespace Catalog.Database;
 
 public class EshopDatabase : DbContext
 {
-    public DbSet<Category> Categories { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
 
     public EshopDatabase(DbContextOptions<EshopDatabase> options) : base(options)

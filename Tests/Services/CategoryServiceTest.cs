@@ -1,0 +1,51 @@
+using Catalog.Entities;
+using Catalog.Repositories;
+using Catalog.Services;
+using Catalog.Services.Exceptions;
+using Moq;
+
+namespace Tests.Services;
+
+public class CategoryServiceTest
+{
+    [Fact]
+    public async Task Create_WhenCategoryNameEmpty_ShouldThrowException()
+    {
+        // Arrange
+        var categoryRepository = new Mock<ICategoryRepository>();
+        var categoryService = new CategoryService(categoryRepository.Object);
+
+        // Act
+        await Assert.ThrowsAsync<CategoryNameEmptyException>(async () => await categoryService.Create(""));
+    }
+    
+    [Fact]
+    public async Task Create_WhenCategoryNameExists_ShouldThrowException()
+    {
+        // Arrange
+        var categoryRepository = new Mock<ICategoryRepository>();
+        var categoryName = "toys";
+        categoryRepository.Setup(categoryRepository => categoryRepository.CategoryNameIsExist(categoryName)).Returns(true);
+        var categoryService = new CategoryService(categoryRepository.Object);
+
+        // Act
+        await Assert.ThrowsAsync<CategoryAlreadyExistsException>(async () => await categoryService.Create(categoryName));
+    }
+    
+      
+    [Fact]
+    public async Task Create_WhenNewCategoryNameProvided_ShouldWork()
+    {
+        // Arrange
+        var categoryRepository = new Mock<ICategoryRepository>();
+        var categoryName = "toys";
+        categoryRepository.Setup(categoryRepository => categoryRepository.CategoryNameIsExist(categoryName)).Returns(false);
+        var categoryService = new CategoryService(categoryRepository.Object);
+
+        // Act
+        await categoryService.Create(categoryName);
+        
+        // Assert
+        categoryRepository.Verify(x=>x.Add(It.IsAny<Category>()));
+    }
+}
