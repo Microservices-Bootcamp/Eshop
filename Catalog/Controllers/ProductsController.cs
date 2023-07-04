@@ -8,15 +8,16 @@ namespace Catalog.Controllers;
 public class ProductsController : ControllerBase
 {
     private readonly IProductService _productService;
-
-    public ProductsController(IProductService productService)
+    private readonly ILogger<ProductsController> _logger;
+    public ProductsController(IProductService productService, ILogger<ProductsController> logger)
     {
         _productService = productService;
+        _logger = logger;
     }
 
     public async Task<IActionResult> Post([FromBody] Product product)
     {
-        
+        _logger.LogInformation("Product with ${ProductName} requested", product.Name);
         if (!ModelState.IsValid)
         {
             var errors = ModelState.Values
