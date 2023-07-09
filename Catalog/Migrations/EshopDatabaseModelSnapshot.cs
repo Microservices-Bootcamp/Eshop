@@ -41,8 +41,7 @@ namespace Catalog.Migrations
             modelBuilder.Entity("Catalog.Entities.Product", b =>
                 {
                     b.Property<string>("Sku")
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)");
+                        .HasColumnType("text");
 
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uuid");

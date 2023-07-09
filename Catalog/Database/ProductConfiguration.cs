@@ -10,5 +10,8 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         builder.ToTable("Products");
         builder.HasKey(x => x.Sku);
+        builder.Property(x => x.Sku)
+            .HasConversion(sku => sku._value,
+                dbValue => new Sku(dbValue));
     }
 }

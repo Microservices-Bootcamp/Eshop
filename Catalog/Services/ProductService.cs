@@ -1,3 +1,4 @@
+using Catalog.Controllers.Dtos;
 using Catalog.Entities;
 using Catalog.Repositories;
 using Catalog.Services.Exceptions;
@@ -13,11 +14,15 @@ public class ProductService : IProductService
         _productRepository = productRepository;
     }
 
-    public async Task CreateProduct(Product product)
+    public async Task CreateProductRequest(CreateProductRequest request)
     {
-        if (product.SellingPrice == 0 || product.CostPrice == 0 || product.SellingPrice < product.CostPrice)
+        if (request.SellingPrice == 0 || request.CostPrice == 0 || request.SellingPrice < request.CostPrice)
             throw new PriceException();
-        
+
+        // Convert to Product domain model
+        var product = Product.CreateNew(new Sku(request.Sku), request.Name, request.CategoryId, request.Description,
+            request.CostPrice,
+            request.SellingPrice, request.Count);
         await _productRepository.Add(product);
     }
 }

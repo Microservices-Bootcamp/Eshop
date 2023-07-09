@@ -3,7 +3,30 @@
 ###
 POST {{url}}/categories
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODg0NTcxNDAsImlzcyI6IkVzaG9wX1NlcnZpY2UiLCJhdWQiOiJFc2hvcF9TZXJ2aWNlIn0.-Md07S9vTNJB_lC6pTlxf4u-KxY_Izw1LVL8t34SAas
 
 {
-    "categoryName": "First Category"
+    "CategoryName": "Third Category1sd"
+}
+###
+POST {{url}}/products
+Content-Type: application/json
+
+{
+"SKU":"656565",
+"Name":"product name",
+"CategoryId":"837223d1-3631-4c97-b955-48b812baa742",
+"Description":"product description",
+"CostPrice": 100,
+"SellingPrice": 120,
+"Count":1,
+"IsAvailable":true
+}
+
+###
+POST {{url}}/login
+Content-Type: application/json
+
+{
+"UserName":"admin"
 }

@@ -16,5 +16,8 @@ public class ProductRepo: IProductRepository
     {
         _db.Products.Add(product);
         await _db.SaveChangesAsync();
+        // publish domain events
+        var evetns = product.GetOccuredEvents();
+        //publisher.publish(events);
     }
 }

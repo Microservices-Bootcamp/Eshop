@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Catalog.Controllers.Dtos;
 using Catalog.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.Controllers
 {
     [Route("/categories")]
+    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
