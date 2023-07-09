@@ -1,8 +1,8 @@
-using Catalog.Entities;
-using Catalog.Repositories;
-using Catalog.Services;
-using Catalog.Services.Exceptions;
 using Moq;
+using Src.Entities;
+using Src.Repositories;
+using Src.Services;
+using Src.Services.Exceptions;
 
 namespace Tests.Services;
 

@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Catalog\Catalog.csproj" />
+      <ProjectReference Include="..\Src\Src.csproj" />
     </ItemGroup>
 
 </Project>

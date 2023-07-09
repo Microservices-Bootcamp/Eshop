@@ -2,9 +2,9 @@ using System.Net;
 using System.Net.Mime;
 using System.Text;
 using AutoFixture;
-using Catalog.Controllers.Dtos;
-using Catalog.Entities;
 using Newtonsoft.Json;
+using Src.Controllers.Dtos;
+using Src.Entities;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Tests;

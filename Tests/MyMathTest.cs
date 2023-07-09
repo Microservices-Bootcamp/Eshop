@@ -1,4 +1,4 @@
-using Catalog.Services;
+using Src.Services;
 
 namespace Tests;
 
