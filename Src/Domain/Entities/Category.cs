@@ -1,4 +1,4 @@
-﻿namespace Src.Entities
+﻿namespace Src.Domain.Entities
 {
     public class Category
     {
@@ -6,4 +6,3 @@
         public Guid Id { get; set; }
     }
 }
-

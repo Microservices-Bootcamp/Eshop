@@ -1,6 +1,6 @@
-﻿using Src.Entities;
+﻿using Src.Domain.Entities;
 
-namespace Src.Repositories
+namespace Src.Domain.Contracts
 {
 	public interface ICategoryRepository
 	{

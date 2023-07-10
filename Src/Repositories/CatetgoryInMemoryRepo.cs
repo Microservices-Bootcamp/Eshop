@@ -1,4 +1,5 @@
-﻿using Src.Entities;
+﻿using Src.Domain.Contracts;
+using Src.Domain.Entities;
 
 namespace Src.Repositories
 {

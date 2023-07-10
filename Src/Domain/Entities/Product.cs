@@ -1,4 +1,4 @@
-namespace Src.Entities;
+namespace Src.Domain.Entities;
 
 public class Product
 {

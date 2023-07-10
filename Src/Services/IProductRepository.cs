@@ -1,6 +1,6 @@
-using Src.Entities;
+using Src.Domain.Entities;
 
-namespace Src.Repositories;
+namespace Src.Services;
 
 public interface IProductRepository
 {

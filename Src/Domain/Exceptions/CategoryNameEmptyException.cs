@@ -1,4 +1,4 @@
-﻿namespace Src.Services.Exceptions
+﻿namespace Src.Domain.Exceptions
 {
     [Serializable]
     public class CategoryNameEmptyException : Exception

@@ -1,5 +1,6 @@
 using Src.Database;
-using Src.Entities;
+using Src.Domain.Entities;
+using Src.Services;
 
 namespace Src.Repositories;
 

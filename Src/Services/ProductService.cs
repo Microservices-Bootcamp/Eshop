@@ -1,6 +1,5 @@
 using Src.Controllers.Dtos;
-using Src.Entities;
-using Src.Repositories;
+using Src.Domain.Entities;
 using Src.Services.Exceptions;
 
 namespace Src.Services;

@@ -4,7 +4,7 @@ using System.Text;
 using AutoFixture;
 using Newtonsoft.Json;
 using Src.Controllers.Dtos;
-using Src.Entities;
+using Src.Domain.Entities;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Tests;

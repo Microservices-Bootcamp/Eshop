@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Src.Application.UseCases;
 using Src.Controllers.Dtos;
-using Src.Services;
 
 namespace Src.Controllers
 {
@@ -9,17 +9,17 @@ namespace Src.Controllers
     [Authorize]
     public class CategoryController : ControllerBase
     {
-        private readonly ICategoryService _categoryService;
+        private readonly CreateCategory _createCategory;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(CreateCategory createCategory)
         {
-            _categoryService = categoryService;
+            _createCategory = createCategory;
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateCategoryRequest request)
         {
-            await _categoryService.Create(request.CategoryName);
+            await _createCategory.Execute(request.CategoryName);
             return Ok("Category created...");
         }
     }
