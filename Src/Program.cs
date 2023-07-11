@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.HttpLogging;
 using Serilog;
+using Src.API.Security;
 using Src.Application.UseCases;
-using Src.Database;
 using Src.Domain.Contracts;
-using Src.Repositories;
-using Src.Security;
-using Src.Services;
+using Src.Infrastructure.Database;
+using Src.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((context, services, configuration) =>
@@ -23,9 +22,8 @@ builder.Services.AddEshopAuthentication(builder.Configuration);
 builder.Services.AddEshopDb(builder.Configuration);
 builder.Services.AddTransient<ICategoryRepository, CategoryRepo>();
 builder.Services.AddTransient<CreateCategory>();
-builder.Services.AddTransient<ICategoryService, CategoryService>();
+builder.Services.AddTransient<CreateProduct>();
 builder.Services.AddTransient<JwtCreator>();
-builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<IProductRepository, ProductRepo>();
 
 builder.Services.AddControllers();

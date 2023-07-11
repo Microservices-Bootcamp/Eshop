@@ -3,7 +3,7 @@ using System.Net.Mime;
 using System.Text;
 using AutoFixture;
 using Newtonsoft.Json;
-using Src.Controllers.Dtos;
+using Src.Application.Dtos;
 using Src.Domain.Entities;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 

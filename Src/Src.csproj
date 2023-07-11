@@ -30,5 +30,9 @@
     <ItemGroup>
         <InternalsVisibleTo Include="Tests" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="API\" />
+      <Folder Include="Infrastructure\" />
+    </ItemGroup>
 
 </Project>

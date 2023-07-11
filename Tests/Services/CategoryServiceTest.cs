@@ -2,9 +2,7 @@ using Moq;
 using Src.Domain.Contracts;
 using Src.Domain.Entities;
 using Src.Domain.Exceptions;
-using Src.Repositories;
 using Src.Services;
-using Src.Services.Exceptions;
 
 namespace Tests.Services;
 

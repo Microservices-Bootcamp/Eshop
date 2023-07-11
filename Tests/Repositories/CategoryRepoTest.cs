@@ -1,8 +1,8 @@
 using EntityFrameworkCoreMock;
 using Microsoft.EntityFrameworkCore;
-using Src.Database;
 using Src.Domain.Entities;
-using Src.Repositories;
+using Src.Infrastructure.Database;
+using Src.Infrastructure.Repositories;
 
 namespace Tests.Repositories;
 
